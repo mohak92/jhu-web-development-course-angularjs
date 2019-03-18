@@ -1,0 +1,32 @@
+<div class="container">
+  <h2 class="text-center">
+    My Information
+  </h2>
+  <div ng-if="!userAccountCtrl.registered">
+    <p class="text-center">Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></p>
+  </div>
+
+  <div class="row" ng-if="userAccountCtrl.registered">
+    <div class="col-md-6">
+      <h2>Profile</h2>
+      <p>Name: {{userAccountCtrl.user.name}}</p>
+      <p>Phone: {{userAccountCtrl.user.phone}}</p>
+      <p>Email: {{userAccountCtrl.user.email}}</p>
+    </div>
+    <div class="col-md-6">
+      <h2>Favorite Dish</h2>
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="menu-item-photo">
+            <div>{{userAccountCtrl.user.favoriteDish.short_name}}</div>
+            <img class="img-responsive" width="250" height="150" ng-src="{{userAccountCtrl.basePath}}/images/{{userAccountCtrl.user.favoriteDish.short_name}}.jpg" alt="{{userAccountCtrl.user.favoriteDish.name}}">
+          </div>
+        </div>
+        <div class="menu-item-description col-sm-7">
+          <h3 class="menu-item-title">{{userAccountCtrl.user.favoriteDish.name}}</h3>
+          <p class="menu-item-details">{{userAccountCtrl.user.favoriteDish.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
